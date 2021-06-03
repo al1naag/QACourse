@@ -1,0 +1,8 @@
+#!/bin/bash
+cd test2
+mkdir script-folder1 script-folder2 script-folder3
+cd script-folder1
+touch script-text1.txt script-text2.txt script-text13.txt script-test1.json script-test1.json
+mkdir script-folder4 script-folder5 script-folder6
+ls -la
+mv script-text1.txt script-text2.txt script-folder4

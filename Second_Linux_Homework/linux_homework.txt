@@ -1,0 +1,25 @@
+1) Изучите что такое Screen – терминальное приложение, с возможностью открытия нескольких сессий в одном окне терминала.
+2) Создайте 3 пользователя  - sudo adduser testuser1; sudo adduser testuser2;  sudo adduser testuser3.
+3) Создайте 2 группы (группа с админскими правами и группа с правами доступа к некоторым папкам и запуском скриптов в этой папке) -
+	Группа с админ правами:
+	1. sudo groupadd admins; sudo groupadd noadmins
+	2.  sudo nano /etc/sudoers или sudo visudo, добавить строку %admins ALL=(ALL:ALL) ALL.
+	Группа с правами доступа к определенной папке:
+	1. sudo mkdir /var/test
+	2. sudo chgrp noadmins -R /var/test
+	3. sudo chown :noadmins /var/test
+	4. sudo chmod 2770 /var/test
+
+4) Добавить 1-го пользователя в группу админ и провверить работтают ли его админские права -
+	1. sudo usermod -aG admins testuser2 (добавление в группу админ);
+	2. sudo -l -U testuser2 (проверка прав).
+	3. sudo apt install screen - установка приложений из командной строки работает.
+5) Добавить 2-х оставшихся пользователей в группу с обрезанными правами. Проверить что они могут делать что не могут.
+	1. sudo usermod -aG noadmins testuser1;  sudo usermod -aG noadmins testuser3.
+	2. Могут создавать, перемещать и запускать файлы в пределах разрешенной папки test.
+	3. Права на установку приложений отсутствуют - Sudo apt install screen – ошибка testuser3 is not sudoers file. This incident will be reported.
+
+6) Запустить несколько Screen – screen; ctrl+a c;  ctrl+a c;  ctrl+a c;
+7) Детачить скрины – ctrl+a S  (горизонтальный) ctrl+a | (вертикальный)
+8. Переходить между скринами ctrl+a “; cctl+a n; ctrl +a p;
+9) Выключать скрины – ctrl+a \ (закрыть все скрины), ctrl+a k  (закрыть текущий скрин)
