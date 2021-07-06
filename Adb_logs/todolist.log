@@ -1,0 +1,55 @@
+.log.txt:222:07-06 22:32:40.021   583   583 I SurfaceFlinger: screenshot (com.android.todolist/com.android.todolist.MainActivity#0)
+.log.txt:264:07-06 22:32:40.411   583   583 I SurfaceFlinger: screenshot (com.android.todolist/com.android.todolist.MainActivity#0)
+.log.txt:388:07-06 22:32:40.793   583  1233 I BufferQueueProducer: [com.android.todolist/com.android.todolist.MainActivity#0](this:0x7094f6c800,id:37128,api:1,p:27234,c:583) disconnect(P): api 1
+.log.txt:474:07-06 22:32:40.892  3753  4095 D PowerCheckerService: foreground, uid = 10281, app = com.android.todolist
+.log.txt:610:07-06 22:32:42.691  3753  4095 D PowerCheckerService: foreground, uid = 10281, app = com.android.todolist
+.log.txt:1836:07-06 22:33:14.865  3753  4095 D PowerCheckerService: foreground, uid = 10281, app = com.android.todolist
+.log.txt:2001:07-06 22:33:15.422  1303  1888 D PowerHalWrapper: amsBoostNotify pid:27234,activity:com.android.todolist.MainActivity, package:com.android.todolist, mProcessCreatePackcom.android.todolist 
+.log.txt:2016:07-06 22:33:15.456  1718  1718 D RecentsImpl: mActivityStateObserver com.android.todolist.MainActivity
+.log.txt:2018:07-06 22:33:15.467  1303  7747 I WindowManager: Relayout Window{2f959ee u0 com.android.todolist/com.android.todolist.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+.log.txt:2038:07-06 22:33:15.486   583  2379 I BufferQueueProducer: [com.android.todolist/com.android.todolist.MainActivity#0](this:0x7094f6c800,id:37128,api:1,p:27234,c:583) connect(P): api=1 producer=(27234:com.android.todolist) producerControlledByApp=false
+.log.txt:2104:07-06 22:33:15.508   583  1232 I BufferQueueProducer: [com.android.todolist/com.android.todolist.MainActivity#0](this:0x7094f6c800,id:37128,api:1,p:27234,c:583) queueBuffer: fps=0.19 dur=88075.98 max=87813.77 min=13.24
+.log.txt:2283:07-06 22:33:15.779  1303  1324 I Timeline: Timeline: Activity_windows_visible id: ActivityRecord{1a16acf u0 com.android.todolist/.MainActivity t3096} time:484769038
+.log.txt:2331:07-06 22:33:16.337 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.MainActivity@4c2eae1
+.log.txt:2333:07-06 22:33:16.367  1303  2796 I ActivityTaskManager: START u0 {cmp=com.android.todolist/.ListActivity (has extras)} from uid 10281
+.log.txt:2334:07-06 22:33:16.352 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.MainActivity@4c2eae1
+.log.txt:2338:07-06 22:33:16.370  1303  2796 D PowerHalWrapper: <amsBoostResume> last:com.android.todolist, next:com.android.todolist 
+.log.txt:2341:07-06 22:33:16.377 27234 27234 I Toast   : Show toast from OpPackageName:com.android.todolist, PackageName:com.android.todolist
+.log.txt:2342:07-06 22:33:16.380  1303  2796 D PowerHalWrapper: amsBoostNotify pid:27234,activity:com.android.todolist.ListActivity, package:com.android.todolist, mProcessCreatePackcom.android.todolist 
+.log.txt:2354:07-06 22:33:16.394   583   630 I BufferQueueProducer: [Toast#0](this:0x70920bb000,id:37131,api:1,p:27234,c:583) connect(P): api=1 producer=(27234:com.android.todolist) producerControlledByApp=false
+.log.txt:2360:07-06 22:33:16.427 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2361:07-06 22:33:16.473 27234 27234 I chatty  : uid=10281(com.android.todolist) identical 7 lines
+.log.txt:2362:07-06 22:33:16.475 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2367:07-06 22:33:16.506  1718  1718 D RecentsImpl: mActivityStateObserver com.android.todolist.ListActivity
+.log.txt:2370:07-06 22:33:16.522 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2371:07-06 22:33:16.530 27234 27234 I chatty  : uid=10281(com.android.todolist) identical 3 lines
+.log.txt:2372:07-06 22:33:16.531 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2374:07-06 22:33:16.533 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2375:07-06 22:33:16.552  1303  2796 I WindowManager: Relayout Window{2193965 u0 com.android.todolist/com.android.todolist.ListActivity}: oldVis=4 newVis=0 focusMayChange = true
+.log.txt:2376:07-06 22:33:16.544 27234 27234 I chatty  : uid=10281(com.android.todolist) identical 5 lines
+.log.txt:2377:07-06 22:33:16.546 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2381:07-06 22:33:16.552   583  2379 I BufferQueueConsumer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:0,p:-1,c:583) setConsumerName: com.android.todolist/com.android.todolist.ListActivity#0
+.log.txt:2382:07-06 22:33:16.552   583  2379 I BufferQueueConsumer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:0,p:-1,c:583) setDefaultBufferSize: width=1 height=1
+.log.txt:2383:07-06 22:33:16.553   583  2379 I BufferQueueConsumer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:0,p:-1,c:583) setDefaultBufferSize: width=1080 height=2340
+.log.txt:2388:07-06 22:33:16.558   583  2379 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) connect(P): api=1 producer=(27234:com.android.todolist) producerControlledByApp=false
+.log.txt:2392:07-06 22:33:16.591   583  1232 I BufferQueueProducer: [com.android.todolist/com.android.todolist.MainActivity#0](this:0x7094f6c800,id:37128,api:1,p:27234,c:583) queueBuffer: fps=2.77 dur=1083.13 max=1006.54 min=6.62
+.log.txt:2401:07-06 22:33:17.104 27234 27277 W RenderInspector: DequeueBuffer time out on com.android.todolist/com.android.todolist.ListActivity, count=1, avg=17 ms, max=17 ms.
+.log.txt:2405:07-06 22:33:17.113  1303  1324 I Timeline: Timeline: Activity_windows_visible id: ActivityRecord{727a07e u0 com.android.todolist/.ListActivity t3096} time:484770372
+.log.txt:2415:07-06 22:33:17.139   583   630 I BufferQueueProducer: [com.android.todolist/com.android.todolist.MainActivity#0](this:0x7094f6c800,id:37128,api:1,p:27234,c:583) disconnect(P): api 1
+.log.txt:2419:07-06 22:33:17.196   583   583 I BufferQueue: [com.android.todolist/com.android.todolist.MainActivity#0](this:0x7094f6c800,id:37128,api:1,p:-1,c:-1) ~BufferQueueCore
+.log.txt:2426:07-06 22:33:17.769   583  2379 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=17.76 dur=1182.71 max=584.98 min=3.13
+.log.txt:2437:07-06 22:33:18.391  1303  2793 W NotificationService: Toast already killed. pkg=com.android.todolist callback=android.app.ITransientNotification$Stub$Proxy@732f378
+.log.txt:2438:07-06 22:33:18.490 27234 27277 W RenderInspector: DequeueBuffer time out on com.android.todolist/com.android.todolist.ListActivity, count=1, avg=18 ms, max=18 ms.
+.log.txt:2472:07-06 22:33:18.951   583   630 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=31.30 dur=1182.20 max=411.10 min=3.92
+.log.txt:2565:07-06 22:33:19.952  1303  1693 D PerfShielderService: com.android.todolist|com.android.todolist/com.android.todolist.ListActivity|104|484772792276740|54|5|4
+.log.txt:2566:07-06 22:33:19.952  2802 28298 W MiuiPerfServiceClient: interceptAndQueuing:27234|com.android.todolist|104|54|unknown|null|com.android.todolist/com.android.todolist.ListActivity|484772792276740|Slow issue draw commands|4
+.log.txt:2630:07-06 22:33:20.181 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2631:07-06 22:33:20.186   583  1233 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=25.12 dur=1234.09 max=294.06 min=4.11
+.log.txt:2649:07-06 22:33:21.418   583   627 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=7.30 dur=1232.11 max=473.86 min=3.85
+.log.txt:2665:07-06 22:33:21.584 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2666:07-06 22:33:21.585 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2668:07-06 22:33:21.588 27234 27234 D ForceDarkHelper: updateByCheckExcludeList: pkg: com.android.todolist activity: com.android.todolist.ListActivity@cd9564
+.log.txt:2683:07-06 22:33:23.237   583   627 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=14.84 dur=1819.58 max=1215.68 min=3.94
+.log.txt:2793:07-06 22:33:42.987   583   627 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=0.81 dur=19749.37 max=19499.42 min=14.64
+.log.txt:2801:07-06 22:33:44.007   583   627 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=32.33 dur=1020.73 max=475.83 min=4.26
+.log.txt:2852:07-06 22:33:45.012   583   627 I BufferQueueProducer: [com.android.todolist/com.android.todolist.ListActivity#0](this:0x707b8f3000,id:37132,api:1,p:27234,c:583) queueBuffer: fps=21.90 dur=1004.40 max=371.57 min=3.82
