@@ -146,7 +146,7 @@
       <width>900</width>
       <height>700</height>
     </mainWindow>
-    <currentDirectory>C:\Users\alina\Desktop</currentDirectory>
+    <currentDirectory>C:\Users\alina\QACourse\Charles_Proxy</currentDirectory>
     <lastCheckUpdates>2021-07-09 16:27:29.957 UTC</lastCheckUpdates>
   </startupConfiguration>
   <userInterfaceConfiguration>
@@ -260,7 +260,7 @@
       <entry>
         <string>Breakpoints</string>
         <breakpoints>
-          <toolEnabled>true</toolEnabled>
+          <toolEnabled>false</toolEnabled>
           <breakpoints>
             <breakpoint>
               <location>
@@ -273,6 +273,54 @@
               <request>false</request>
               <response>true</response>
               <enabled>true</enabled>
+            </breakpoint>
+            <breakpoint>
+              <location>
+                <protocol>https</protocol>
+                <host>nordclan.com</host>
+                <path>api/blogposts</path>
+                <query>hidden=false</query>
+              </location>
+              <scheme>GET</scheme>
+              <request>true</request>
+              <response>false</response>
+              <enabled>false</enabled>
+            </breakpoint>
+            <breakpoint>
+              <location>
+                <protocol>http</protocol>
+                <host>162.55.220.72</host>
+                <port>5005</port>
+                <path>/get_method</path>
+              </location>
+              <scheme>GET</scheme>
+              <request>false</request>
+              <response>true</response>
+              <enabled>false</enabled>
+            </breakpoint>
+            <breakpoint>
+              <location>
+                <protocol>http</protocol>
+                <host>162.55.220.72</host>
+                <port>5005</port>
+                <path>/user_info_3</path>
+              </location>
+              <scheme>POST</scheme>
+              <request>false</request>
+              <response>true</response>
+              <enabled>false</enabled>
+            </breakpoint>
+            <breakpoint>
+              <location>
+                <protocol>http</protocol>
+                <host>162.55.220.72</host>
+                <port>5005</port>
+                <path>/object_info_1</path>
+              </location>
+              <scheme>GET</scheme>
+              <request>false</request>
+              <response>true</response>
+              <enabled>false</enabled>
             </breakpoint>
           </breakpoints>
         </breakpoints>
@@ -323,8 +371,8 @@
           <debugging>false</debugging>
           <sets>
             <rewriteSet>
-              <active>false</active>
-              <name>New Data</name>
+              <active>true</active>
+              <name>get_method</name>
               <hosts>
                 <locationPatterns>
                   <locationMatch>
@@ -332,7 +380,7 @@
                       <protocol>http</protocol>
                       <host>162.55.220.72</host>
                       <port>5005</port>
-                      <path>new_data</path>
+                      <path>/get_method</path>
                     </location>
                     <enabled>true</enabled>
                   </locationMatch>
@@ -341,12 +389,14 @@
               <rules>
                 <rewriteRule>
                   <active>true</active>
-                  <ruleType>7</ruleType>
+                  <ruleType>9</ruleType>
+                  <matchHeader>name</matchHeader>
                   <matchValue>Alina</matchValue>
                   <matchHeaderRegex>false</matchHeaderRegex>
                   <matchValueRegex>false</matchValueRegex>
-                  <matchRequest>true</matchRequest>
+                  <matchRequest>false</matchRequest>
                   <matchResponse>false</matchResponse>
+                  <newHeader>name</newHeader>
                   <newValue>Polya</newValue>
                   <newHeaderRegex>false</newHeaderRegex>
                   <newValueRegex>false</newValueRegex>
@@ -365,6 +415,208 @@
                   <matchResponse>false</matchResponse>
                   <newHeader>age</newHeader>
                   <newValue>22</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+              </rules>
+            </rewriteSet>
+            <rewriteSet>
+              <active>true</active>
+              <name>user_info_3</name>
+              <hosts>
+                <locationPatterns>
+                  <locationMatch>
+                    <location>
+                      <protocol>http</protocol>
+                      <host>162.55.220.72</host>
+                      <port>5005</port>
+                      <path>/user_info_3</path>
+                    </location>
+                    <enabled>true</enabled>
+                  </locationMatch>
+                </locationPatterns>
+              </hosts>
+              <rules>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>7</ruleType>
+                  <matchValue>&quot;u_salary_1_5_year&quot;:20000</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>true</matchResponse>
+                  <newValue>&quot;u_salary_1_5_year&quot;1000</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+              </rules>
+            </rewriteSet>
+            <rewriteSet>
+              <active>true</active>
+              <name>object_info_1</name>
+              <hosts>
+                <locationPatterns>
+                  <locationMatch>
+                    <location>
+                      <protocol>http</protocol>
+                      <host>162.55.220.72</host>
+                      <port>5005</port>
+                      <path>/object_info_1</path>
+                    </location>
+                    <enabled>true</enabled>
+                  </locationMatch>
+                </locationPatterns>
+              </hosts>
+              <rules>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>9</ruleType>
+                  <matchHeader>name</matchHeader>
+                  <matchValue>Alina</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>false</matchResponse>
+                  <newHeader>name</newHeader>
+                  <newValue>Natasha</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>7</ruleType>
+                  <matchValue>&quot;daily_food&quot;:0.6</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>true</matchResponse>
+                  <newValue>&quot;daily_food&quot;:55</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>7</ruleType>
+                  <matchValue>&quot;daily_sleep&quot;:125.0</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>true</matchResponse>
+                  <newValue>&quot;daily_sleep&quot;:25.0</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+              </rules>
+            </rewriteSet>
+            <rewriteSet>
+              <active>true</active>
+              <name>object_info_3</name>
+              <hosts>
+                <locationPatterns>
+                  <locationMatch>
+                    <location>
+                      <protocol>http</protocol>
+                      <host>162.55.220.72</host>
+                      <port>5005</port>
+                      <path>/object_info_3</path>
+                    </location>
+                    <enabled>true</enabled>
+                  </locationMatch>
+                </locationPatterns>
+              </hosts>
+              <rules>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>11</ruleType>
+                  <matchValue>200 OK</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>false</matchResponse>
+                  <newValue>500 Internal Server Error</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+              </rules>
+            </rewriteSet>
+            <rewriteSet>
+              <active>true</active>
+              <name>object_info_4</name>
+              <hosts>
+                <locationPatterns>
+                  <locationMatch>
+                    <location>
+                      <protocol>http</protocol>
+                      <host>162.55.220.72</host>
+                      <port>5005</port>
+                      <path>/object_info_4</path>
+                    </location>
+                    <enabled>true</enabled>
+                  </locationMatch>
+                </locationPatterns>
+              </hosts>
+              <rules>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>11</ruleType>
+                  <matchValue>200 OK</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>false</matchResponse>
+                  <newValue>405 Method Not Allowed</newValue>
+                  <newHeaderRegex>false</newHeaderRegex>
+                  <newValueRegex>false</newValueRegex>
+                  <matchWholeValue>false</matchWholeValue>
+                  <caseSensitive>false</caseSensitive>
+                  <replaceType>2</replaceType>
+                </rewriteRule>
+              </rules>
+            </rewriteSet>
+            <rewriteSet>
+              <active>true</active>
+              <name>user_info_2</name>
+              <hosts>
+                <locationPatterns>
+                  <locationMatch>
+                    <location>
+                      <protocol>http</protocol>
+                      <host>162.55.220.72</host>
+                      <port>5005</port>
+                      <path>/user_info_2</path>
+                    </location>
+                    <enabled>true</enabled>
+                  </locationMatch>
+                </locationPatterns>
+              </hosts>
+              <rules>
+                <rewriteRule>
+                  <active>true</active>
+                  <ruleType>7</ruleType>
+                  <matchValue>qa_salary_after_1.5_year</matchValue>
+                  <matchHeaderRegex>false</matchHeaderRegex>
+                  <matchValueRegex>false</matchValueRegex>
+                  <matchRequest>false</matchRequest>
+                  <matchResponse>true</matchResponse>
+                  <newValue>qa_salary_after_1.5_month</newValue>
                   <newHeaderRegex>false</newHeaderRegex>
                   <newValueRegex>false</newValueRegex>
                   <matchWholeValue>false</matchWholeValue>
