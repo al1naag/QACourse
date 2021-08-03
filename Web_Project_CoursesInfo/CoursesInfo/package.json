@@ -1,0 +1,18 @@
+{
+  "name": "courses-info-api",
+  "version": "1.0.0",
+  "description": "Courses Info API",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.9.x",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "js-yaml": "^4.1.0",
+    "minimist": "*",
+    "pg": "^8.7.1",
+    "postman-to-swagger": "github:tecfu/postman-to-swagger",
+    "swagger-node-express": "~2.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
