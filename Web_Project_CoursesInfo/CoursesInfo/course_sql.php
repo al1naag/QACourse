@@ -234,6 +234,7 @@ echo "<tr style='text-align:left'>
     <th>Фамилия</th>
     <th>Email</th>
     <th>Страна</th>
+    <th>Создан</th>
     </tr>\n";
 while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr >\n";
