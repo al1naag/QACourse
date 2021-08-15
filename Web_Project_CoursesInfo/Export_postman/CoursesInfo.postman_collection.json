@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a1016e53-a77c-4564-9a92-4b1a56cbc41c",
+		"_postman_id": "5f6d1c05-324d-4479-bbec-fcd1b3f3a0fb",
 		"name": "CoursesInfo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -28,7 +28,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -66,7 +66,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n \"student_id\": 1,\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"email\": \"ivan.ivanov@gmail.com\",\n \"country\": \"Россия\",\n \"created_at\": 11558951\n}"
+									"body": "{\n \"student_id\": 1,\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"email\": \"ivan.ivanov@gmail.com\",\n \"country\": \"Россия\",\n \"created_at\": -12882672\n}"
 								}
 							]
 						},
@@ -96,7 +96,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -221,7 +221,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -372,7 +372,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n \"student_id\": 1,\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"email\": \"ivan.ivanov@gmail.com\",\n \"country\": \"Россия\",\n \"created_at\": 11558951\n}"
+							"body": "{\n \"student_id\": 1,\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"email\": \"ivan.ivanov@gmail.com\",\n \"country\": \"Россия\",\n \"created_at\": -12882672\n}"
 						}
 					]
 				},
@@ -509,7 +509,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -563,7 +563,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"С#\",\n    \"price_course\": 25000\n}"
+									"raw": "{\n    \"name_course\": \"С#\",\n    \"price_course\": 25000\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/courses/:Id",
@@ -577,7 +577,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -702,7 +702,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -869,7 +869,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"С#\",\n    \"price_course\": 25000\n}"
+							"raw": "{\n    \"name_course\": \"С#\",\n    \"price_course\": 25000\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/courses",
@@ -990,7 +990,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -1028,141 +1028,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"name_course\": \"JavaScript\",\n \"price_course\": 25000,\n \"payment_id\": 1,\n \"date_p\": 94860075\n}"
-								}
-							]
-						},
-						{
-							"name": "updatePayment",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Иван\",\n    \"surnname\": \"Иванов\",\n    \"name_course\": \"Иванов\",\n    \"payment\": 25000\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/payments/:Id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"payments",
-										":Id"
-									],
-									"variable": [
-										{
-											"key": "Id",
-											"value": "amet",
-											"description": "(Required) "
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "Successful response",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/payments/:Id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"payments",
-												":Id"
-											],
-											"variable": [
-												{
-													"key": "Id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": "Оплата обновлена с ID"
-								},
-								{
-									"name": "Bad Request",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/payments/:Id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"payments",
-												":Id"
-											],
-											"variable": [
-												{
-													"key": "Id"
-												}
-											]
-										}
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": "Bad Request"
-								},
-								{
-									"name": "Method Not Allowed",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/payments/:Id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"payments",
-												":Id"
-											],
-											"variable": [
-												{
-													"key": "Id"
-												}
-											]
-										}
-									},
-									"status": "Method Not Allowed",
-									"code": 405,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": "Method Not Allowed"
+									"body": "{\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"name_course\": \"JavaScript\",\n \"price_course\": 25000,\n \"payment_id\": 1,\n \"date_p\": -16594136\n}"
 								}
 							]
 						},
@@ -1183,7 +1049,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -1290,6 +1156,140 @@
 									"body": "Method Not Allowed"
 								}
 							]
+						},
+						{
+							"name": "updatePayment",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Иван\",\n    \"surnname\": \"Иванов\",\n    \"name_course\": \"Иванов\",\n    \"payment\": 25000\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments/:Id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":Id"
+									],
+									"variable": [
+										{
+											"key": "Id",
+											"value": "laborum Excepteur culpa",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/payments/:Id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"payments",
+												":Id"
+											],
+											"variable": [
+												{
+													"key": "Id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": "Оплата обновлена с ID"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/payments/:Id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"payments",
+												":Id"
+											],
+											"variable": [
+												{
+													"key": "Id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": "Bad Request"
+								},
+								{
+									"name": "Method Not Allowed",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/payments/:Id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"payments",
+												":Id"
+											],
+											"variable": [
+												{
+													"key": "Id"
+												}
+											]
+										}
+									},
+									"status": "Method Not Allowed",
+									"code": 405,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": "Method Not Allowed"
+								}
+							]
 						}
 					]
 				},
@@ -1334,7 +1334,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"name_course\": \"JavaScript\",\n \"price_course\": 25000,\n \"payment_id\": 1,\n \"date_p\": 94860075\n}"
+							"body": "{\n \"name\": \"Иван\",\n \"surname\": \"Иванов\",\n \"name_course\": \"JavaScript\",\n \"price_course\": 25000,\n \"payment_id\": 1,\n \"date_p\": -16594136\n}"
 						}
 					]
 				},
@@ -1471,7 +1471,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -1572,7 +1572,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]
@@ -1697,7 +1697,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "amet",
+											"value": "laborum Excepteur culpa",
 											"description": "(Required) "
 										}
 									]

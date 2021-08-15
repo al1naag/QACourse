@@ -573,7 +573,7 @@ components:
     createCourse:
       type: object
       properties:
-        name:
+        name_course:
           type: string
           example: С#
         price_course:
@@ -582,7 +582,7 @@ components:
     updateCourse:
       type: object
       properties:
-        name:
+        name_course:
           type: string
           example: С#
         price_course:
