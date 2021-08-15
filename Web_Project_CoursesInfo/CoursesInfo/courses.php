@@ -210,9 +210,9 @@ tr:nth-child(even) {
     <div class="container">
       <h3>Добавить новый курс</h3>
       <label for="name_course"><b>Название курса</b></label>
-      <input type="text" placeholder="Введите название" name="name_course" id="name_course" maxlength="50" required>
+      <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название" name="name_course" id="name_course" maxlength="50" required>
       <label for="price_course"><b>Цена курса</b></label>
-      <input type="text" placeholder="Введите цену" name="price_course" id="price_course" required>
+      <input pattern="[0-9]+" type="text" placeholder="Введите цену" name="price_course" id="price_course" required>
       <button type="submit" name="submit" class="registerbtn">Добавить курс</button>
     </div>
   </form>
@@ -220,7 +220,7 @@ tr:nth-child(even) {
    <div class="container">
      <h3>Удалить курс</h3>
      <label for="name_course"><b>Название курса</b></label>
-     <input type="text" placeholder="Введите название" name="name_course" id="name_course" maxlength="50" required>
+     <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название" name="name_course" id="name_course" maxlength="50" required>
      <button type="submit" name="submit" class="registerbtn">Удалить курс</button>
    </div>
   </div>

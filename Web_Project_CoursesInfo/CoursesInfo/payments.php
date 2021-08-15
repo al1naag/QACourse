@@ -211,13 +211,13 @@ tr:nth-child(even) {
   <div class="container">
     <h3>Добавить оплату</h3>
         <label for="name"><b>Имя</b></label>
-    <input type="text" placeholder="Введите имя" name="name" id="name" maxlength="50" required>
+    <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите имя" name="name" id="name" maxlength="50" required>
     <label for="surname"><b>Фамилия</b></label>
-    <input type="text" placeholder="Введите фамилию" name="surname" id="surname" maxlength="50" required>
+    <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите фамилию" name="surname" id="surname" maxlength="50" required>
     <label for="name_course"><b>Курс</b></label>
-    <input type="text" placeholder="Введите название курса" name="name_course" id="name_course" maxlength="50" required>
+    <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название курса" name="name_course" id="name_course" maxlength="50" required>
     <label for="payment"><b>Сумма</b></label>
-    <input type="text" placeholder="Введите сумму" name="payment" id="payment" required>
+    <input pattern="[0-9]+"type="text" placeholder="Введите сумму" name="payment" id="payment" required>
     <button type="submit" name="submit" class="registerbtn">Добавить оплату</button>
   </div>
 </form>
