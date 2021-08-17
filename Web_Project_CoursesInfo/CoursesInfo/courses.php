@@ -218,11 +218,27 @@ tr:nth-child(even) {
   </form>
   <form  method="POST"  action="delete_course.php">
    <div class="container">
-     <h3>Удалить курс</h3>
-     <label for="name_course"><b>Название курса</b></label>
-     <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название" name="name_course" id="name_course" maxlength="50" required>
+      <h3>Удалить курс</h3>
+
+
+      <select id="name_course" name="name_course">
+        <option value="course_id,name_course">Выбрать курс</option>
+
+        <?php
+         #DB Connection
+
+         $result=pg_query($dbconn, "SELECT courses.course_id, courses.name_course FROM courses");
+         while ($row = pg_fetch_array($result))
+         {
+            ?>
+            <option value="<? echo $row['course_id']." ".$row['name_course'];?>"><?echo $row['course_id']." ".$row['name_course'];?></option>
+  <?
+  }
+  ?>
+      </select>
      <button type="submit" name="submit" class="registerbtn">Удалить курс</button>
    </div>
+  </form>
   </div>
 </div>
 

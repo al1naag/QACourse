@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 </head>
 <body>
   <?php
@@ -228,25 +227,109 @@
     <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите фамилию" name="surname" id="surname" maxlength="50" required>
     <label for="email"><b>Email</b></label>
     <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" placeholder="Введите Email" name="email" id="email" maxlength="255" required>
-    <label for="name_course"><b>Курс</b></label>
-    <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название курса" name="name_course" id="name_course" maxlength="50" required >
     <label for="country"><b>Страна</b></label>
     <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите страну" name="country" id="country" maxlength="50" required>
       <button type="submit" name="submit" class="registerbtn">Добавить студента</button>
   </div>
 </form>
-<form  method="POST"  action="delete.php">
+<form  method="POST"  action="delete_student.php">
  <div class="container">
-   <h3>Удалить студента с курса</h3>
-   <label for="name"><b>Имя</b></label>
-   <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите имя" name="name" id="name" required>
-   <label for="surname"><b>Фамилия</b></label>
-   <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите фамилию" name="surname" id="surname" required>
-   <label for="name_course"><b>Курс</b></label>
-   <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название курса" name="name_course" id="name_course" required>
+    <h3>Удалить студента</h3>
+
+    <select id="student" name="student">
+      <option value="student_id,name,surname">Выбрать студента</option>
+
+      <?php
+       #DB Connection
+
+       $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+       while ($row = pg_fetch_array($result))
+       {
+          ?>
+          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+<?
+}
+?>
+    </select>
    <button type="submit" name="submit" class="registerbtn">Удалить студента</button>
  </div>
 </form>
+<form  method="POST"  action="add_student_course.php">
+ <div class="container">
+    <h3>Добавить студента на курс</h3>
+
+    <select id="student" name="student">
+      <option value="student_id,name,surname">Выбрать студента</option>
+
+      <?php
+       #DB Connection
+
+       $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+       while ($row = pg_fetch_array($result))
+       {
+          ?>
+          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+<?
+}
+?>
+    </select>
+    <select id="name_course" name="name_course">
+      <option value="name_course">Выбрать курс</option>
+
+      <?php
+       #DB Connection
+
+       $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
+       while ($row = pg_fetch_array($result))
+       {
+          ?>
+          <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+<?
+}
+?>
+    </select>
+   <button type="submit" name="submit" class="registerbtn">Добавить студента</button>
+ </div>
+</form>
+<form  method="POST"  action="delete.php">
+ <div class="container">
+    <h3>Удалить студента с курса</h3>
+
+    <select id="student" name="student">
+      <option value="student_id,name,surname">Выбрать студента</option>
+
+      <?php
+       #DB Connection
+
+       $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+       while ($row = pg_fetch_array($result))
+       {
+          ?>
+          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+<?
+}
+?>
+    </select>
+    <select id="name_course" name="name_course">
+      <option value="name_course">Выбрать курс</option>
+
+      <?php
+       #DB Connection
+
+       $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
+       while ($row = pg_fetch_array($result))
+       {
+          ?>
+          <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+<?
+}
+?>
+    </select>
+   <button type="submit" name="submit" class="registerbtn">Удалить студента</button>
+ </div>
+</form>
+
+
 </div>
 
     <div class="row">
@@ -263,15 +346,15 @@
 FROM public.students_courses  LEFT OUTER JOIN public.students ON students.surname=students_courses.surname order by students_courses.student_id desc limit 10';
     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-    echo "<table align='center' >
+    echo "<table align='center'>
     <th style='padding: 15px; font-size: 15px'>Имя</th>
     <th style='padding: 15px; font-size: 15px'>Фамилия</th>
-    <th style='padding: 15px; font-size: 15px''>Курс</th>
+    <th style='padding: 15px; font-size: 15px'>Курс</th>
     <th style='padding: 15px; font-size: 15px'>Страна</th>\n";
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
         echo "\t<tr>\n";
         foreach ($line as $col_value) {
-            echo "\t\t<td  class='payment1'>$col_value</td>\n";
+            echo "\t\t<td class='payment1'>$col_value</td>\n";
         }
         echo "\t</tr>\n";
     }
@@ -323,15 +406,15 @@ FROM public.payments where payment >0 order by date_p desc limit 10";
            <h3>Долги</h3>
            <?php
 
-    $query = 'SELECT name, surname, name_course, payment
-FROM public.payments where payment =0 order by payment_id desc limit 15;';
+    $query = 'SELECT students_courses.name, students_courses.surname, students_courses.name_course
+FROM public.students_courses left join public.payments on students_courses.student_id=payments.student_id and students_courses.name_course=payments.name_course
+where payment is null';
     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
     echo "<table align='center'>
     <th style='padding: 15px; font-size: 15px'>Имя</th>
     <th style='padding: 15px; font-size: 15px'>Фамилия</th>
-    <th style='padding: 15px; font-size: 15px'>Курс</th>
-    <th style='padding: 15px; font-size: 15px'>Оплата</th>\n";
+    <th style='padding: 15px; font-size: 15px'>Курс</th>\n";
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
         echo "\t<tr>\n";
         foreach ($line as $col_value) {

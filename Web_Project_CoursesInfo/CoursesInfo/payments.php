@@ -207,20 +207,84 @@ tr:nth-child(even) {
 }
 </style>
 <div style="max-width: 500px; float:left;">
- <form  method="POST"  action="insert_payment.php">
+
+   <form  method="POST"  action="insert_payment.php">
+   <div class="container">
+      <h3>Добавить оплату</h3>
+
+      <select id="student" name="student">
+        <option value="student_id,name,surname">Выбрать студента</option>
+
+        <?php
+         #DB Connection
+
+         $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+         while ($row = pg_fetch_array($result))
+         {
+            ?>
+            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+  <?
+  }
+  ?>
+      </select>
+      <select id="name_course" name="name_course">
+        <option value="name_course">Выбрать курс</option>
+
+        <?php
+         #DB Connection
+
+         $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
+         while ($row = pg_fetch_array($result))
+         {
+            ?>
+            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+  <?
+  }
+  ?>
+      </select>
+      <label for="payment"><b>Сумма</b></label>
+      <input pattern="[0-9]+"type="text" placeholder="Введите сумму" name="payment" id="payment" required>
+     <button type="submit" name="submit" class="registerbtn">Добавить оплату</button>
+   </div>
+  </form>
+  <form  method="POST"  action="delete_payment.php">
   <div class="container">
-    <h3>Добавить оплату</h3>
-        <label for="name"><b>Имя</b></label>
-    <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите имя" name="name" id="name" maxlength="50" required>
-    <label for="surname"><b>Фамилия</b></label>
-    <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите фамилию" name="surname" id="surname" maxlength="50" required>
-    <label for="name_course"><b>Курс</b></label>
-    <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите название курса" name="name_course" id="name_course" maxlength="50" required>
-    <label for="payment"><b>Сумма</b></label>
-    <input pattern="[0-9]+"type="text" placeholder="Введите сумму" name="payment" id="payment" required>
-    <button type="submit" name="submit" class="registerbtn">Добавить оплату</button>
+     <h3>Удалить оплату</h3>
+
+     <select id="student" name="student">
+       <option value="student_id,name,surname">Выбрать студента</option>
+
+       <?php
+        #DB Connection
+
+        $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+        while ($row = pg_fetch_array($result))
+        {
+           ?>
+           <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+ <?
+ }
+ ?>
+     </select>
+     <select id="name_course" name="name_course">
+       <option value="name_course">Выбрать курс</option>
+
+       <?php
+        #DB Connection
+
+        $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
+        while ($row = pg_fetch_array($result))
+        {
+           ?>
+           <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+ <?
+ }
+ ?>
+     </select>
+
+    <button type="submit" name="submit" class="registerbtn">Удалить оплату</button>
   </div>
-</form>
+ </form>
 </div>
 </div>
    <?php

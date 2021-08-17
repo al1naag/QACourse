@@ -32,6 +32,11 @@ th {
   font-family: Arial;
   font-size: 14px;
 }
+
+td.fitwidth {
+    width: 1px;
+    white-space: nowrap;
+}
 /* Increase the font size of the heading */
 .header h1 {
   text-align: left;
@@ -306,7 +311,7 @@ border-radius: 5px;
 }
 
 /* Full-width input fields */
-input[type=text], [type=email], input[type=password] {
+input[type=text], select, [type=email], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -315,7 +320,7 @@ input[type=text], [type=email], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus,[type=email]:focus, input[type=password]:focus {
+input[type=text]:focus,[type=email]:focus, select, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }

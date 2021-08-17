@@ -27,7 +27,7 @@ const getStudentById = (request, response) => {
 const createStudent = (request, response) => {
   const { name, surname, email, country } = request.body
 
-  pool.query('INSERT INTO public.students (name, surname, email, country) VALUES ($1, $2, $3, $4)', [name, surname, email, country], (error, results) => {
+  pool.query('INSERT INTO public.students ( name, surname, email, country) VALUES ($1, $2, $3, $4)', [name, surname, email, country], (error, results) => {
     if (error) {
       throw error
     }
@@ -134,9 +134,9 @@ const getPaymentById = (request, response) => {
   })
 }
 const createPayment = (request, response) => {
-  const { name, surname, name_course, payment } = request.body
+  const { student_id, name, surname, name_course, payment } = request.body
 
-  pool.query('INSERT INTO public.payments (name, surname, name_course, payment) VALUES ($1, $2, $3, $4)', [name, surname, name_course, payment], (error, results) => {
+  pool.query('INSERT INTO public.payments (student_id, name, surname, name_course, payment) VALUES ($1, $2, $3, $4, $5)', [student_id, name, surname, name_course, payment], (error, results) => {
     if (error) {
       throw error
     }
@@ -188,9 +188,9 @@ const getStudentsCourseById = (request, response) => {
   })
 }
 const createStudentsCourse = (request, response) => {
-  const { name, surname, name_course } = request.body
+  const { student_id, name, surname, name_course } = request.body
 
-  pool.query('INSERT INTO public.students_courses (name, surname, name_course,) VALUES ($1, $2, $3)', [name, surname, name_course], (error, results) => {
+  pool.query('INSERT INTO public.students_courses (student_id, name, surname, name_course,) VALUES ($1, $2, $3, $4)', [student_id, name, surname, name_course], (error, results) => {
     if (error) {
       throw error
     }
