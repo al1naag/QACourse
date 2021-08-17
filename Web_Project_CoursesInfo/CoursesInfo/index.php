@@ -342,14 +342,14 @@
           <h3>Новые студенты</h3>
          <?php
 
-    $query = 'SELECT students_courses.name, students_courses.surname, name_course, country
-FROM public.students_courses  LEFT OUTER JOIN public.students ON students.surname=students_courses.surname order by students_courses.student_id desc limit 10';
+    $query = 'SELECT name, surname, email, country
+FROM public.students order by student_id desc limit 10';
     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
     echo "<table align='center'>
     <th style='padding: 15px; font-size: 15px'>Имя</th>
     <th style='padding: 15px; font-size: 15px'>Фамилия</th>
-    <th style='padding: 15px; font-size: 15px'>Курс</th>
+    <th style='padding: 15px; font-size: 15px'>Email</th>
     <th style='padding: 15px; font-size: 15px'>Страна</th>\n";
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
         echo "\t<tr>\n";
@@ -369,7 +369,7 @@ FROM public.students_courses  LEFT OUTER JOIN public.students ON students.surnam
 
       <div class="column1">
         <div class="card1">
-          <p><i class="fa1 fa-check"></i></p>
+
            <h3>Последние оплаты</h3>
            <?php
 

@@ -206,7 +206,7 @@ tr:nth-child(even) {
   ;
 }
 </style>
-<div style="max-width: 500px; float:left;">
+<div style="max-width: 300px; float:left;">
 
  <form  method="POST"  action="add_student_course.php">
   <div class="container">
@@ -231,7 +231,6 @@ tr:nth-child(even) {
        <option value="name_course">Выбрать курс</option>
 
        <?php
-        #DB Connection
 
         $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
         while ($row = pg_fetch_array($result))
@@ -253,7 +252,6 @@ tr:nth-child(even) {
        <option value="student_id,name,surname">Выбрать студента</option>
 
        <?php
-        #DB Connection
 
         $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
         while ($row = pg_fetch_array($result))
@@ -268,8 +266,7 @@ tr:nth-child(even) {
        <option value="name_course">Выбрать курс</option>
 
        <?php
-        #DB Connection
-
+        
         $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
         while ($row = pg_fetch_array($result))
         {
@@ -290,7 +287,7 @@ tr:nth-child(even) {
 $query = "SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') FROM students join students_courses on students.student_id = students_courses.student_id where name_course='CSS'";
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-echo "<table style='width:800px; margin:15px'>
+echo "<table style='width:800px; margin:15px' class='center'>
 <h3>Список студентов на курсе CSS</h3>\n";
 echo "<tr style='text-align:left'>
     <th>Имя</th>

@@ -206,7 +206,7 @@ tr:nth-child(even) {
   ;
 }
 </style>
-<div style="max-width: 500px; float:left;">
+<div style="max-width: 300px; float:left;">
   <form  method="POST"  action="add_student_course.php">
    <div class="container">
       <h3>Добавить студента на курс</h3>

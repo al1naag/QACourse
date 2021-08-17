@@ -209,7 +209,7 @@ tr:nth-child(even) {
   ;
 }
 </style>
-<div style="max-width: 500px; float:left;">
+<div style="max-width: 300px; float:left;">
   <form  method="POST"  action="add_student_course.php">
    <div class="container">
       <h3>Добавить студента на курс</h3>
@@ -218,8 +218,7 @@ tr:nth-child(even) {
         <option value="student_id,name,surname">Выбрать студента</option>
 
         <?php
-         #DB Connection
-
+      
          $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
          while ($row = pg_fetch_array($result))
          {
@@ -233,7 +232,6 @@ tr:nth-child(even) {
         <option value="name_course">Выбрать курс</option>
 
         <?php
-         #DB Connection
 
          $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
          while ($row = pg_fetch_array($result))
@@ -255,7 +253,6 @@ tr:nth-child(even) {
         <option value="student_id,name,surname">Выбрать студента</option>
 
         <?php
-         #DB Connection
 
          $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
          while ($row = pg_fetch_array($result))
@@ -270,7 +267,6 @@ tr:nth-child(even) {
         <option value="name_course">Выбрать курс</option>
 
         <?php
-         #DB Connection
 
          $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
          while ($row = pg_fetch_array($result))

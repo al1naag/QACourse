@@ -205,7 +205,7 @@ tr:nth-child(even) {
   ;
 }
 </style>
-<div style="max-width: 500px; float:left;">
+<div style="max-width: 300px; float:left;">
    <form  method="POST"  action="insert_course.php">
     <div class="container">
       <h3>Добавить новый курс</h3>
@@ -222,7 +222,7 @@ tr:nth-child(even) {
 
 
       <select id="name_course" name="name_course">
-        <option value="course_id,name_course">Выбрать курс</option>
+        <option value="name_course">Выбрать курс</option>
 
         <?php
          #DB Connection
@@ -231,7 +231,7 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['course_id']." ".$row['name_course'];?>"><?echo $row['course_id']." ".$row['name_course'];?></option>
+            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
   <?
   }
   ?>
@@ -247,7 +247,7 @@ tr:nth-child(even) {
 $query = 'SELECT name_course, price_course FROM courses';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-echo "<table style='width:400px'>
+echo "<table style='width:500px; align:center;'>
 <h3>Список курсов</h3>\n";
 echo "<tr style='text-align:left'>
     <th style='padding: 15px 0; font-size: 15px'>Название курса</th>
