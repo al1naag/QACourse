@@ -100,8 +100,8 @@ td.fitwidth {
 .footer {
   padding: 20px;
   text-align: center;
-  background: #34495E;
-  color: white;
+  background-image: url(bg_1.png);
+  color: black;
 }
 
 
