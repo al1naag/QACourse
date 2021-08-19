@@ -221,8 +221,8 @@ tr:nth-child(even) {
       <h3>Удалить курс</h3>
 
 
-      <select id="name_course" name="name_course">
-        <option value="name_course">Выбрать курс</option>
+      <select id="course_del" name="course_del">
+        <option value="course_id,name_course">Выбрать курс</option>
 
         <?php
          #DB Connection
@@ -231,12 +231,37 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+            <option value="<? echo $row['course_id']." ".$row['name_course'];?>"><?echo $row['name_course'];?></option>
   <?
   }
   ?>
       </select>
      <button type="submit" name="submit" class="registerbtn">Удалить курс</button>
+   </div>
+  </form>
+  <form  method="POST"  action="update_course.php">
+   <div class="container">
+     <h3>Изменить курс</h3>
+     <select id="course_upd" name="course_upd">
+       <option value="course_id,name_course">Выбрать курс</option>
+
+       <?php
+        #DB Connection
+
+        $result=pg_query($dbconn, "SELECT courses.course_id, courses.name_course FROM courses");
+        while ($row = pg_fetch_array($result))
+        {
+           ?>
+           <option value="<? echo $row['course_id']." ".$row['name_course'];?>"><?echo $row['name_course'];?></option>
+  <?
+  }
+  ?>
+     </select>
+     <label for="new_name_course"><b>Название курса</b></label>
+     <input pattern="[A-Za-zА-Яа-яё0-9 ,.'-]+" type="text" placeholder="Введите новое название" name="new_name_course" id="new_name_course" maxlength="50" required>
+     <label for="new_price_course"><b>Цена курса</b></label>
+     <input pattern="[0-9]+" type="text" placeholder="Введите новую цену" name="new_price_course" id="new_price_course" required>
+     <button type="submit" name="submit" class="registerbtn">Изменить курс</button>
    </div>
   </form>
   </div>

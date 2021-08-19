@@ -1,0 +1,2 @@
+Swagger API:
+https://app.swaggerhub.com/apis/al1naag/Courses_Info/1.0.0

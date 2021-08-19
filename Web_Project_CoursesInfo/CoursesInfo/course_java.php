@@ -221,7 +221,7 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
   <?
   }
   ?>
@@ -248,37 +248,59 @@ tr:nth-child(even) {
    <div class="container">
       <h3>Удалить студента с курса</h3>
 
-      <select id="student" name="student">
-        <option value="student_id,name,surname">Выбрать студента</option>
+      <select id="student_del" name="student_del">
+        <option value="student_courses_id,name,surname,name_course">Выбрать студента</option>
 
         <?php
-         #DB Connection
 
-         $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+         $result=pg_query($dbconn, "SELECT students_courses.student_courses_id, students_courses.name, students_courses.surname, students_courses.name_course FROM students_courses");
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+            <option value="<? echo $row['student_courses_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
   <?
   }
   ?>
       </select>
-      <select id="name_course" name="name_course">
-        <option value="name_course">Выбрать курс</option>
 
-        <?php
-         #DB Connection
-
-         $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
-         while ($row = pg_fetch_array($result))
-         {
-            ?>
-            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
-  <?
-  }
-  ?>
-      </select>
      <button type="submit" name="submit" class="registerbtn">Удалить студента</button>
+   </div>
+  </form>
+  <form  method="POST"  action="update_student_course.php">
+   <div class="container">
+     <h3>Изменить курс</h3>
+     <select id="student" name="student">
+       <option value="student_courses_id,name,surname,name_course">Выбрать студента</option>
+
+       <?php
+        #DB Connection
+
+        $result=pg_query($dbconn, "SELECT students_courses.student_courses_id, students_courses.name, students_courses.surname, students_courses.name_course FROM students_courses");
+        while ($row = pg_fetch_array($result))
+        {
+           ?>
+           <option value="<? echo $row['student_courses_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
+  <?
+  }
+  ?>
+     </select>
+
+     <select id="new_name_course" name="new_name_course">
+       <option value="new_name_course">Выбрать новый курс</option>
+
+       <?php
+
+        $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
+        while ($row = pg_fetch_array($result))
+        {
+           ?>
+           <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+  <?
+  }
+  ?>
+     </select>
+
+       <button type="submit" name="submit" class="registerbtn">Изменить курс</button>
    </div>
   </form>
   </div>

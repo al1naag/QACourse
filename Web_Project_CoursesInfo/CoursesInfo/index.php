@@ -246,7 +246,7 @@
        while ($row = pg_fetch_array($result))
        {
           ?>
-          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
 <?
 }
 ?>
@@ -254,78 +254,34 @@
    <button type="submit" name="submit" class="registerbtn">Удалить студента</button>
  </div>
 </form>
-<form  method="POST"  action="add_student_course.php">
+<form  method="POST"  action="update_student.php">
  <div class="container">
-    <h3>Добавить студента на курс</h3>
+   <h3>Обновить информацию о студенте</h3>
+   <select id="student" name="student">
+     <option value="student_id,name,surname">Выбрать студента</option>
 
-    <select id="student" name="student">
-      <option value="student_id,name,surname">Выбрать студента</option>
+     <?php
+      #DB Connection
 
-      <?php
-       #DB Connection
-
-       $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
-       while ($row = pg_fetch_array($result))
-       {
-          ?>
-          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+      $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+      while ($row = pg_fetch_array($result))
+      {
+         ?>
+         <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
 <?
 }
 ?>
-    </select>
-    <select id="name_course" name="name_course">
-      <option value="name_course">Выбрать курс</option>
+   </select>
+   <label for="name_new"><b>Имя</b></label>
+   <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите новое имя" name="name_new" id="name_new" maxlength="50" required>
+   <label for="surname_new"><b>Фамилия</b></label>
+   <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите новую фамилию" name="surname_new" id="surname_new" maxlength="50" required>
+   <label for="email"><b>Email</b></label>
+   <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" placeholder="Введите новый Email" name="email" id="email" required>
+   <label for="country"><b>Страна</b></label>
+   <input pattern="[A-Za-zА-Яа-яё ,.'-]+" type="text" placeholder="Введите новую страну" name="country" id="country" required>
 
-      <?php
-       #DB Connection
-
-       $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
-       while ($row = pg_fetch_array($result))
-       {
-          ?>
-          <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
-<?
-}
-?>
-    </select>
-   <button type="submit" name="submit" class="registerbtn">Добавить студента</button>
- </div>
-</form>
-<form  method="POST"  action="delete.php">
- <div class="container">
-    <h3>Удалить студента с курса</h3>
-
-    <select id="student" name="student">
-      <option value="student_id,name,surname">Выбрать студента</option>
-
-      <?php
-       #DB Connection
-
-       $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
-       while ($row = pg_fetch_array($result))
-       {
-          ?>
-          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
-<?
-}
-?>
-    </select>
-    <select id="name_course" name="name_course">
-      <option value="name_course">Выбрать курс</option>
-
-      <?php
-       #DB Connection
-
-       $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
-       while ($row = pg_fetch_array($result))
-       {
-          ?>
-          <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
-<?
-}
-?>
-    </select>
-   <button type="submit" name="submit" class="registerbtn">Удалить студента</button>
+     <button type="submit" name="submit" class="registerbtn">Обновить студента</button>
  </div>
 </form>
 
@@ -339,7 +295,7 @@
       <div class="column1">
         <div class="card1">
           <p><i class="fa1 fa-user"></i></p>
-          <h3>Новые студенты</h3>
+          <h3>Последние 10 студентов</h3>
          <?php
 
     $query = 'SELECT name, surname, email, country
@@ -370,7 +326,7 @@ FROM public.students order by student_id desc limit 10';
       <div class="column1">
         <div class="card1">
 
-           <h3>Последние оплаты</h3>
+           <h3>Последние 10 оплат</h3>
            <?php
 
     $query = "SELECT name, surname, name_course, payment, to_char(date_p, 'DD.MM.YYYY')

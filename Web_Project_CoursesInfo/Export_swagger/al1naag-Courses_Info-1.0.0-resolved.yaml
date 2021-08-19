@@ -21,7 +21,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
     post:
       tags:
       - default
@@ -32,21 +34,21 @@ paths:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Студент добавлен
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -62,14 +64,17 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "200":
           description: Successful response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
     put:
       tags:
       - default
@@ -81,28 +86,29 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       requestBody:
         $ref: '#/components/requestBodies/updateStudent'
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Студент обновлен с ID
+                example: Студент обновлен
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -117,26 +123,27 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Студент удален с ID
+                example: Студент удален
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -151,7 +158,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_1'
     post:
       tags:
       - default
@@ -162,21 +171,21 @@ paths:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Курс добавлен
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -192,14 +201,17 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "200":
           description: Successful response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_1'
     put:
       tags:
       - default
@@ -211,28 +223,29 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       requestBody:
         $ref: '#/components/requestBodies/updateCourse'
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Курс обновлен с ID
+                example: Курс обновлен
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -247,26 +260,27 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Курс удален с ID
+                example: Курс удален
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -281,7 +295,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_2'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_2'
     post:
       tags:
       - default
@@ -292,21 +308,21 @@ paths:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Добавлена оплата
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -322,14 +338,17 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "200":
           description: Successful response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_2'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_2'
     put:
       tags:
       - default
@@ -341,28 +360,29 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       requestBody:
         $ref: '#/components/requestBodies/updatePayment'
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Оплата обновлена с ID
+                example: Оплата обновлена
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -377,26 +397,27 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Оплата удалена с ID
+                example: Оплата удалена
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -411,7 +432,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_3'
     post:
       tags:
       - default
@@ -422,21 +445,21 @@ paths:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Студент добавлен на курс
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -473,28 +496,29 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       requestBody:
         $ref: '#/components/requestBodies/updateStudentsCourses'
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Студент на курсе обновлен с ID
+                example: Студент на курсе обновлен
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -509,26 +533,27 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          minimum: 1
+          type: integer
       responses:
         "405":
           description: Method Not Allowed
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Method Not Allowed
         "200":
           description: Successful response
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
-                example: Студент на курсе удален с ID
+                example: Студент на курсе удален
         "400":
           description: Bad Request
           content:
-            text/plain:
+            text/html:
               schema:
                 type: string
                 example: Bad Request
@@ -558,6 +583,7 @@ components:
     updateStudent:
       type: object
       properties:
+
         name:
           type: string
           example: Иван
@@ -575,26 +601,30 @@ components:
       properties:
         name_course:
           type: string
-          example: С#
+          example: С
         price_course:
           type: integer
           example: 25000
     updateCourse:
       type: object
       properties:
+
         name_course:
           type: string
-          example: С#
+          example: C
         price_course:
           type: integer
           example: 25000
     createPayment:
       type: object
       properties:
+        student_id:
+          type: integer
+          example: 200
         name:
           type: string
           example: Иван
-        surnname:
+        surname:
           type: string
           example: Иванов
         name_course:
@@ -606,10 +636,13 @@ components:
     updatePayment:
       type: object
       properties:
+        student_id:
+          type: integer
+          example: 200
         name:
           type: string
           example: Иван
-        surnname:
+        surname:
           type: string
           example: Иванов
         name_course:
@@ -621,10 +654,13 @@ components:
     createStudentsCourses:
       type: object
       properties:
+        student_id:
+          type: integer
+          example: 200
         name:
           type: string
           example: Иван
-        surnname:
+        surname:
           type: string
           example: Иванов
         name_course:
@@ -633,10 +669,13 @@ components:
     updateStudentsCourses:
       type: object
       properties:
+        student_id:
+          type: integer
+          example: 200
         name:
           type: string
           example: Иван
-        surnname:
+        surname:
           type: string
           example: Иванов
         name_course:
@@ -661,7 +700,10 @@ components:
           type: string
           example: Россия
         created_at:
-          type: integer
+          pattern: ([0-9]{4})-(?:[0-9]{2})-([0-9]{2})
+          type: string
+          format: date
+          example: "2021-05-17"
     inline_response_200_1:
       type: object
       properties:
@@ -693,7 +735,10 @@ components:
           type: integer
           example: 1
         date_p:
-          type: integer
+          pattern: ([0-9]{4})-(?:[0-9]{2})-([0-9]{2})
+          type: string
+          format: date
+          example: "2021-05-17"
     inline_response_200_3:
       type: object
       properties:

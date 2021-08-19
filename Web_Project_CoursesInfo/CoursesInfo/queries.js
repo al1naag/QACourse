@@ -45,7 +45,7 @@ const updateStudent = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Студент обновлен с ID: ${student_id}`)
+      response.status(200).send(`Студент обновлен`)
     }
   )
 }
@@ -56,7 +56,7 @@ const deleteStudent = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`Студент удален с ID: ${student_id}`)
+    response.status(200).send(`Студент удален`)
   })
 }
 
@@ -90,17 +90,17 @@ const createCourse = (request, response) => {
   })
 }
 const updateCourse = (request, response) => {
-
+const course_id = parseInt(request.params.course_id)
   const { name_course, price_course } = request.body
 
   pool.query(
-    'UPDATE public.courses SET name_course = $1, price_course = $2 WHERE course_id = $1',
-    [name_course, price_course],
+    'UPDATE public.courses SET name_course = $2, price_course = $3 WHERE course_id = $1',
+    [course_id, name_course, price_course],
     (error, results) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Курс обновлен с ID: ${course_id}`)
+      response.status(200).send(`Курс обновлен`)
     }
   )
 }
@@ -111,7 +111,7 @@ const deleteCourse = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`Курс удален с ID: ${course_id}`)
+    response.status(200).send(`Курс удален`)
   })
 }
 
@@ -145,16 +145,16 @@ const createPayment = (request, response) => {
 }
 const updatePayment = (request, response) => {
   const payment_id = parseInt(request.params.payment_id)
-  const { name, surname, name_course, payment } = request.body
+  const { student_id, name, surname, name_course, payment } = request.body
 
   pool.query(
-    'UPDATE public.payments SET name = $1, surname = $2, name_course = $3, payment = $4 WHERE payment_id = $5',
-    [name, surname, name_course, payment, payment_id],
+    'UPDATE public.payments SET student_id = $1, name = $2, surname = $3, name_course = $4, payment = $5 WHERE payment_id = $6',
+    [student_id, name, surname, name_course, payment, payment_id],
     (error, results) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Оплата обновлена с ID: ${payment_id}`)
+      response.status(200).send(`Оплата обновлена`)
     }
   )
 }
@@ -165,7 +165,7 @@ const deletePayment = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`Оплата удалена с ID: ${payment_id}`)
+    response.status(200).send(`Оплата удалена`)
   })
 }
 
@@ -190,7 +190,7 @@ const getStudentsCourseById = (request, response) => {
 const createStudentsCourse = (request, response) => {
   const { student_id, name, surname, name_course } = request.body
 
-  pool.query('INSERT INTO public.students_courses (student_id, name, surname, name_course,) VALUES ($1, $2, $3, $4)', [student_id, name, surname, name_course], (error, results) => {
+  pool.query('INSERT INTO public.students_courses (student_id, name, surname, name_course) VALUES ($1, $2, $3, $4)', [student_id, name, surname, name_course], (error, results) => {
     if (error) {
       throw error
     }
@@ -208,7 +208,7 @@ const updateStudentsCourse = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Студент на курсе обновлен с ID: ${student_courses_id}`)
+      response.status(200).send(`Студент на курсе обновлен`)
     }
   )
 }
@@ -219,7 +219,7 @@ const deleteStudentsCourse = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`Студент на курсе удален с ID: ${student_courses_id}`)
+    response.status(200).send(`Студент удален с курса`)
   })
 }
 

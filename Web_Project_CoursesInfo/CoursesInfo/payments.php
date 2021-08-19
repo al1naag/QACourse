@@ -216,13 +216,13 @@ tr:nth-child(even) {
         <option value="student_id,name,surname">Выбрать студента</option>
 
         <?php
-        
+         #DB Connection
 
          $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
   <?
   }
   ?>
@@ -231,7 +231,7 @@ tr:nth-child(even) {
         <option value="name_course">Выбрать курс</option>
 
         <?php
-
+         #DB Connection
 
          $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
          while ($row = pg_fetch_array($result))
@@ -255,13 +255,13 @@ tr:nth-child(even) {
        <option value="student_id,name,surname">Выбрать студента</option>
 
        <?php
+        #DB Connection
 
-
-        $result=pg_query($dbconn, "SELECT students.student_id, students.name, students.surname FROM students");
+        $result=pg_query($dbconn, "SELECT payments.payment_id, payments.name, payments.surname FROM payments");
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['student_id']." ".$row['name']." ".$row['surname'];?></option>
+           <option value="<? echo $row['payment_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
  <?
  }
  ?>
@@ -270,7 +270,7 @@ tr:nth-child(even) {
        <option value="name_course">Выбрать курс</option>
 
        <?php
-
+        #DB Connection
 
         $result=pg_query($dbconn, "SELECT courses.name_course  FROM courses");
         while ($row = pg_fetch_array($result))
@@ -285,6 +285,31 @@ tr:nth-child(even) {
     <button type="submit" name="submit" class="registerbtn">Удалить оплату</button>
   </div>
  </form>
+ <form  method="POST"  action="update_payment.php">
+ <div class="container">
+    <h3>Изменить сумму оплаты</h3>
+
+    <select id="student_p" name="student_p">
+      <option value="student_id,payment_id,name,surname,name_courses">Выбрать студента</option>
+
+      <?php
+       #DB Connection
+
+       $result=pg_query($dbconn, "SELECT payments.student_id, payments.payment_id, payments.name, payments.surname, payments.name_course FROM payments");
+       while ($row = pg_fetch_array($result))
+       {
+          ?>
+          <option value="<? echo $row['student_id']." ".$row['payment_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
+<?
+}
+?>
+    </select>
+
+    <label for="payment"><b>Сумма</b></label>
+    <input pattern="[0-9]+"type="text" placeholder="Введите новую сумму" name="payment" id="payment" required>
+   <button type="submit" name="submit" class="registerbtn">Изменить сумму</button>
+ </div>
+</form>
 </div>
 </div>
    <?php
