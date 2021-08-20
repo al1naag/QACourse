@@ -246,8 +246,8 @@
        while ($row = pg_fetch_array($result))
        {
           ?>
-          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
-<?
+          <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
+<?php
 }
 ?>
     </select>
@@ -267,8 +267,8 @@
       while ($row = pg_fetch_array($result))
       {
          ?>
-         <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
-<?
+         <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
+<?php
 }
 ?>
    </select>
