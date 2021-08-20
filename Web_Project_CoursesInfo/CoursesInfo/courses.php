@@ -231,8 +231,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['course_id']." ".$row['name_course'];?>"><?echo $row['name_course'];?></option>
-  <?
+            <option value="<?php echo $row['course_id']." ".$row['name_course'];?>"><?php echo $row['name_course'];?></option>
+  <?php
   }
   ?>
       </select>
@@ -252,8 +252,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<? echo $row['course_id']." ".$row['name_course'];?>"><?echo $row['name_course'];?></option>
-  <?
+           <option value="<?php echo $row['course_id']." ".$row['name_course'];?>"><?php echo $row['name_course'];?></option>
+  <?php
   }
   ?>
      </select>
