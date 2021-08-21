@@ -1,0 +1,16 @@
+DirectoryIndex index.html index.php /index.php
+AddHandler php-cgi .php .htm
+AddType 'application/rdf+xml; charset=UTF-8' .rdf
+AddType 'application/xhtml+xml; charset=UTF-8' .xhtml
+AddType 'application/xhtml+xml; charset=UTF-8' .xhtml.gz
+AddType 'text/html; charset=UTF-8' .html
+AddType 'text/html; charset=UTF-8' .html.gz
+AddType application/octet-stream .rar .chm .bz2 .tgz .msi .pdf .exe
+AddType application/vnd.ms-excel .csv
+AddType application/x-httpd-php-source .phps
+AddType application/x-pilot .prc .pdb
+AddType application/x-shockwave-flash .swf
+AddType application/xrds+xml .xrdf
+AddType text/plain .ini .sh .bsh .bash .awk .nawk .gawk .csh .var .c .in .h .asc .md5 .sha .sha1
+AddType video/x-flv .flv
+DefaultType text/html
