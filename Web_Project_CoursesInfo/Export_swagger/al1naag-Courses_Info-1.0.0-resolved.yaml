@@ -696,10 +696,10 @@ components:
           type: string
           example: Россия
         created_at:
-          pattern: ([0-9]{4})-(?:[0-9]{2})-([0-9]{2})
+          pattern: ([0-9]{2}).(?:[0-9]{2}).([0-9]{4})
           type: string
           format: date
-          example: "2021-05-17"
+          example: "27.07.2021"
     inline_response_200_1:
       type: object
       properties:
@@ -734,10 +734,10 @@ components:
           type: integer
           example: 1
         date_p:
-          pattern: ([0-9]{4})-(?:[0-9]{2})-([0-9]{2})
+          pattern: ([0-9]{2}).(?:[0-9]{2}).([0-9]{4})
           type: string
           format: date
-          example: "2021-05-17"
+          example: "27.07.2021"
     inline_response_200_3:
       type: object
       properties:
