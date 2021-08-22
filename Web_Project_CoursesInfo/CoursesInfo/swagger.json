@@ -14,7 +14,7 @@
       "description": "SwaggerHub API Auto Mocking"
     },
     {
-      "url": "http://localhost:3000/"
+      "url": "http://23.88.52.139:3000/"
     }
   ],
   "paths": {
