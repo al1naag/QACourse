@@ -6,11 +6,11 @@
   },
   "servers": [
     {
-      "url": "https://virtserver.swaggerhub.com/al1naag/Courses_Info/1.0.0",
-      "description": "SwaggerHub API Auto Mocking"
+      "url": "http://23.88.52.139:3000/"
     },
     {
-      "url": "http://23.88.52.139:3000/"
+      "url": "https://virtserver.swaggerhub.com/al1naag/Courses_Info/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
     }
   ],
   "paths": {
@@ -1092,6 +1092,10 @@
       "inline_response_200_2": {
         "type": "object",
         "properties": {
+          "student_id": {
+            "type": "integer",
+            "example": 1
+          },
           "name": {
             "type": "string",
             "example": "Иван"
@@ -1104,7 +1108,7 @@
             "type": "string",
             "example": "JavaScript"
           },
-          "price_course": {
+          "payment": {
             "type": "integer",
             "example": 25000
           },

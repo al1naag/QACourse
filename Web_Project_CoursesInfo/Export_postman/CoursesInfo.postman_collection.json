@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "eaf93c37-70c2-4ced-84d9-d60d3c2d8e01",
+		"_postman_id": "087ca899-61e2-4534-be4e-636bd6b064d3",
 		"name": "CoursesInfo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -28,7 +28,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -96,7 +96,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -221,7 +221,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -509,7 +509,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -577,7 +577,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -702,7 +702,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -990,7 +990,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -1028,7 +1028,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n {\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"price_course\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n },\n {\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"price_course\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n }\n]"
+									"body": "[\n {\n  \"student_id\": 1,\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"payment\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n },\n {\n  \"student_id\": 1,\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"payment\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n }\n]"
 								}
 							]
 						},
@@ -1058,7 +1058,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -1183,7 +1183,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -1334,7 +1334,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n {\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"price_course\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n },\n {\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"price_course\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n }\n]"
+							"body": "[\n {\n  \"student_id\": 1,\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"payment\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n },\n {\n  \"student_id\": 1,\n  \"name\": \"Иван\",\n  \"surname\": \"Иванов\",\n  \"name_course\": \"JavaScript\",\n  \"payment\": 25000,\n  \"payment_id\": 1,\n  \"date_p\": \"2021-05-17\"\n }\n]"
 						}
 					]
 				},
@@ -1471,7 +1471,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "proident",
+											"value": "veniam do adipisicing",
 											"description": "(Required) "
 										}
 									]
@@ -1572,7 +1572,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -1697,7 +1697,7 @@
 									"variable": [
 										{
 											"key": "Id",
-											"value": "9157708",
+											"value": "90916460",
 											"description": "(Required) "
 										}
 									]
@@ -1966,7 +1966,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://virtserver.swaggerhub.com/al1naag/Courses_Info/1.0.0",
+			"value": "http://23.88.52.139:3000/",
 			"type": "string"
 		}
 	]

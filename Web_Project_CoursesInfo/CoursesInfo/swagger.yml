@@ -4,9 +4,11 @@ info:
   title: CoursesInfo
   version: 1.0.0
 servers:
-- url: https://virtserver.swaggerhub.com/al1naag/Courses_Info/1.0.0
-  description: SwaggerHub API Auto Mocking
+# Added by API Auto Mocking Plugin
 - url: http://23.88.52.139:3000/
+- description: SwaggerHub API Auto Mocking
+  url: https://virtserver.swaggerhub.com/al1naag/Courses_Info/1.0.0
+
 paths:
   /students:
     get:
@@ -717,6 +719,9 @@ components:
     inline_response_200_2:
       type: object
       properties:
+        student_id:
+          type: integer
+          example: 1
         name:
           type: string
           example: Иван
@@ -726,7 +731,7 @@ components:
         name_course:
           type: string
           example: JavaScript
-        price_course:
+        payment:
           type: integer
           example: 25000
         payment_id:
