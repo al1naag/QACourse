@@ -222,8 +222,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
-  <?
+            <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
+  <?php
   }
   ?>
       </select>
@@ -237,8 +237,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
-  <?
+            <option value="<?php echo $row['name_course'];?>"><?php echo $row['name_course'];?></option>
+  <?php
   }
   ?>
       </select>
@@ -261,8 +261,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<? echo $row['payment_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
- <?
+           <option value="<?php echo $row['payment_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
+ <?php
  }
  ?>
      </select>
@@ -276,8 +276,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
- <?
+           <option value="<?php echo $row['name_course'];?>"><?php echo $row['name_course'];?></option>
+ <?php
  }
  ?>
      </select>
@@ -299,8 +299,8 @@ tr:nth-child(even) {
        while ($row = pg_fetch_array($result))
        {
           ?>
-          <option value="<? echo $row['student_id']." ".$row['payment_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
-<?
+          <option value="<?php echo $row['student_id']." ".$row['payment_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?php echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
+<?php
 }
 ?>
     </select>
