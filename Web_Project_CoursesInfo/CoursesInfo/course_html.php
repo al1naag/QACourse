@@ -310,7 +310,7 @@ tr:nth-child(even) {
 </div>
 <?php
       // construct the query with our apikey and the query we want to make
-      $endpoint = 'http://23.88.52.139:3000/students_html';
+      $endpoint = 'http://23.88.52.139:3001/students_html';
       // setup curl to make a call to the endpoint
       $session = curl_init($endpoint);
       // indicates that we want the response back
