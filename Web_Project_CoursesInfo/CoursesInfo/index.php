@@ -246,8 +246,8 @@
        while ($row = pg_fetch_array($result))
        {
           ?>
-          <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
-<?php
+          <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
+<?
 }
 ?>
     </select>
@@ -267,8 +267,8 @@
       while ($row = pg_fetch_array($result))
       {
          ?>
-         <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
-<?php
+         <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
+<?
 }
 ?>
    </select>
@@ -296,10 +296,11 @@
         <div class="card1">
           <p><i class="fa1 fa-user"></i></p>
           <h3>Последние 10 студентов</h3>
+
          <?php
 
     $query = 'SELECT name, surname, email, country
-FROM public.students order by student_id desc limit 10';
+FROM public.students order by created_at desc limit 10';
     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
     echo "<table align='center'>
