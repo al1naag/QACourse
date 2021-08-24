@@ -16,7 +16,7 @@ const getStudents = (request, response) => {
 }
 
 const getPaymentsPage = (request, response) => {
-  pool.query("SELECT name, surname, payments.name_course,  payment, price_course, to_char(date_p, 'DD.MM.YYYY') as date_p FROM payments left outer join courses on payments.name_course = courses.name_course order by date_p DESC", (error, results) => {
+  pool.query("SELECT name, surname, payments.name_course,  payment, price_course, to_char(date_p, 'DD.MM.YYYY') as date_p FROM payments left outer join courses on payments.name_course = courses.name_course order by payment_id DESC", (error, results) => {
     if (error) {
       throw error
     }

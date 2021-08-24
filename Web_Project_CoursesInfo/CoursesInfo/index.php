@@ -300,7 +300,7 @@
          <?php
 
     $query = 'SELECT name, surname, email, country
-FROM public.students order by created_at desc limit 10';
+FROM public.students order by student_id desc limit 10';
     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
     echo "<table align='center'>
