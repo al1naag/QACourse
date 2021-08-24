@@ -222,8 +222,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
-  <?php
+            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
+  <?
   }
   ?>
       </select>
@@ -237,8 +237,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<?php echo $row['name_course'];?>"><?php echo $row['name_course'];?></option>
-  <?php
+            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+  <?
   }
   ?>
       </select>
@@ -261,8 +261,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<?php echo $row['payment_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
- <?php
+           <option value="<? echo $row['payment_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
+ <?
  }
  ?>
      </select>
@@ -276,8 +276,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<?php echo $row['name_course'];?>"><?php echo $row['name_course'];?></option>
- <?php
+           <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+ <?
  }
  ?>
      </select>
@@ -299,8 +299,8 @@ tr:nth-child(even) {
        while ($row = pg_fetch_array($result))
        {
           ?>
-          <option value="<?php echo $row['student_id']." ".$row['payment_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?php echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
-<?php
+          <option value="<? echo $row['student_id']." ".$row['payment_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
+<?
 }
 ?>
     </select>
@@ -312,35 +312,51 @@ tr:nth-child(even) {
 </form>
 </div>
 </div>
-   <?php
+<?php
+      // construct the query with our apikey and the query we want to make
+      $endpoint = 'http://23.88.52.139:3000/payments_page';
+      // setup curl to make a call to the endpoint
+      $session = curl_init($endpoint);
+      // indicates that we want the response back
+      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+      // exec curl and get the data back
+      $data = curl_exec($session);
+      // remember to close the curl session once we are finished retrieveing the data
+      curl_close($session);
+      // decode the json data to make it easier to parse the php
+      $search_results = json_decode($data, true);
+      if ($search_results === NULL) die('Error parsing json');
+      //print_r($search_results);
 
-$query = "SELECT name, surname, payments.name_course,  payment, price_course, to_char(date_p, 'DD.MM.YYYY') FROM payments left outer join courses on payments.name_course = courses.name_course order by date_p DESC";
-$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+      echo '<h3>Список оплат</h3><table> <tr>
+       <th>Имя</th>
+       <th>Фамилия</th>
+       <th>Курс</th>
+       <th>Сумма оплаты</th>
+       <th>Цена курса</th>
+       <th>Дата оплаты</th>
+      </tr>'
+      ;
+      foreach ($search_results as $coin) {
 
-echo "<table style='width:700px'>
-<h3>Список оплат</h3>\n";
-echo "<tr style='text-align:left'>
-    <th>Имя</th>
-    <th>Фамилия</th>
-    <th>Курс</th>
-    <th>Сумма оплаты</th>
-    <th>Цена курса</th>
-    <th>Дата оплаты</th>
-   </tr>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr >\n";
-    foreach ($line as $col_value) {
+      $name = $coin["name"];
+      $surname= $coin["surname"];
+      $name_course= $coin["name_course"];
+      $price_course= $coin["price_course"];
+      $payment= $coin["payment"];
+      $date_p= $coin["date_p"];
 
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
-}
-echo "</table>\n";
 
-pg_free_result($result);
 
-pg_close($dbconn);
+   echo '<tr><td>'.$name.'</td><td>'.$surname.'</td><td>'.$name_course.'</td><td>'.$payment.'</td><td>'.$price_course.'</td><td>'.$date_p.'</td></tr>';
+
+
+
+      }
+      echo '</table>';
+
 ?>
+
   </div>
 </div>
 

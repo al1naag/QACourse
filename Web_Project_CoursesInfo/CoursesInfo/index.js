@@ -21,6 +21,13 @@ app.get('/', (request, response) => {
 
 const db = require('./queries')
 app.get('/students', db.getStudents)
+app.get('/payments_page', db.getPaymentsPage)
+app.get('/students_css', db.getStudentsCSS)
+app.get('/students_js', db.getStudentsJS)
+app.get('/students_html', db.getStudentsHTML)
+app.get('/students_sql', db.getStudentsSQL)
+app.get('/students_python', db.getStudentsPython)
+app.get('/students_java', db.getStudentsJava)
 app.get('/students/:student_id', db.getStudentById)
 app.post('/students', db.createStudent)
 app.put('/students/:student_id', db.updateStudent)

@@ -36,7 +36,7 @@
       <a href="course_html.php">HTML</a>
 	  <a href="course_css.php">CSS</a>
 	  <a href="course_python.php">Python</a>
-	  <a href="course_java.php">Java</a>
+	  <a href="course_java.php.php.php">Java</a>
     </div>
   </div>
 </div>
@@ -222,8 +222,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<?php echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?php echo $row['name']." ".$row['surname'];?></option>
-  <?php
+            <option value="<? echo $row['student_id']." ".$row['name']." ".$row['surname'];?>"><?echo $row['name']." ".$row['surname'];?></option>
+  <?
   }
   ?>
       </select>
@@ -237,8 +237,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<?php echo $row['name_course'];?>"><?php echo $row['name_course'];?></option>
-  <?php
+            <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+  <?
   }
   ?>
       </select>
@@ -258,8 +258,8 @@ tr:nth-child(even) {
          while ($row = pg_fetch_array($result))
          {
             ?>
-            <option value="<?php echo $row['student_courses_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?php echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
-  <?php
+            <option value="<? echo $row['student_courses_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
+  <?
   }
   ?>
       </select>
@@ -280,8 +280,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<?php echo $row['student_courses_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?php echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
-  <?php
+           <option value="<? echo $row['student_courses_id']." ".$row['name']." ".$row['surname']." ".$row['name_course'];?>"><?echo $row['name']." ".$row['surname']." ".$row['name_course'];?></option>
+  <?
   }
   ?>
      </select>
@@ -295,8 +295,8 @@ tr:nth-child(even) {
         while ($row = pg_fetch_array($result))
         {
            ?>
-           <option value="<?php echo $row['name_course'];?>"><?php echo $row['name_course'];?></option>
- <?php
+           <option value="<? echo $row['name_course'];?>"><?echo $row['name_course'];?></option>
+ <?
  }
  ?>
      </select>
@@ -306,33 +306,46 @@ tr:nth-child(even) {
   </form>
   </div>
 </div>
-   <?php
+<?php
+      // construct the query with our apikey and the query we want to make
+      $endpoint = 'http://23.88.52.139:3000/students_css';
+      // setup curl to make a call to the endpoint
+      $session = curl_init($endpoint);
+      // indicates that we want the response back
+      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+      // exec curl and get the data back
+      $data = curl_exec($session);
+      // remember to close the curl session once we are finished retrieveing the data
+      curl_close($session);
+      // decode the json data to make it easier to parse the php
+      $search_results = json_decode($data, true);
+      if ($search_results === NULL) die('Error parsing json');
+      //print_r($search_results);
 
-$query = "SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') FROM students join students_courses on students.student_id = students_courses.student_id where name_course='CSS'";
-$result = pg_query($query) or die('Query failed: ' . pg_last_error());
+      echo '<h3>Список студентов на курсе CSS</h3><table> <tr>
+       <th>Имя</th>
+       <th>Фамилия</th>
+       <th>Email</th>
+       <th>Страна</th>
+       <th>Создан</th>
+      </tr>'
+      ;
+      foreach ($search_results as $coin) {
 
-echo "<table style='width:800px; margin:15px' class='center'>
-<h3>Список студентов на курсе CSS</h3>\n";
-echo "<tr style='text-align:left'>
-    <th>Имя</th>
-    <th>Фамилия</th>
-    <th>Email</th>
-    <th>Страна</th>
-    <th>Создан</th>
-    </tr>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr >\n";
-    foreach ($line as $col_value) {
+      $name = $coin["name"];
+      $surname= $coin["surname"];
+      $email= $coin["email"];
+       $country= $coin["country"];
+       $created_at= $coin["created_at"];
 
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
-}
-echo "</table>\n";
 
-pg_free_result($result);
+   echo '<tr><td>'.$name.'</td><td>'.$surname.'</td><td>'.$email.'</td><td>'.$country.'</td><td>'.$created_at.'</td></tr>';
 
-pg_close($dbconn);
+
+
+      }
+      echo '</table>';
+
 ?>
 
   </div>

@@ -7,7 +7,64 @@ const pool = new Pool({
   port: 5056,
 })
 const getStudents = (request, response) => {
-  pool.query('SELECT * FROM public.students ORDER BY student_id ASC', (error, results) => {
+  pool.query("SELECT student_id, name, surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM public.students ORDER BY student_id ASC", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+const getPaymentsPage = (request, response) => {
+  pool.query("SELECT name, surname, payments.name_course,  payment, price_course, to_char(date_p, 'DD.MM.YYYY') as date_p FROM payments left outer join courses on payments.name_course = courses.name_course order by date_p DESC", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getStudentsCSS = (request, response) => {
+  pool.query("SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM students join students_courses on students.student_id = students_courses.student_id where name_course='CSS' order by name ASC ", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getStudentsHTML = (request, response) => {
+  pool.query("SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM students join students_courses on students.student_id = students_courses.student_id where name_course='HTML' order by name ASC ", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getStudentsJava = (request, response) => {
+  pool.query("SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM students join students_courses on students.student_id = students_courses.student_id where name_course='Java' order by name ASC ", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getStudentsPython = (request, response) => {
+  pool.query("SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM students join students_courses on students.student_id = students_courses.student_id where name_course='Python' order by name ASC ", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getStudentsSQL = (request, response) => {
+  pool.query("SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM students join students_courses on students.student_id = students_courses.student_id where name_course='SQL' order by name ASC ", (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getStudentsJS = (request, response) => {
+  pool.query("SELECT students.name, students.surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM students join students_courses on students.student_id = students_courses.student_id where name_course='JavaScript' order by name ASC ", (error, results) => {
     if (error) {
       throw error
     }
@@ -17,7 +74,7 @@ const getStudents = (request, response) => {
 const getStudentById = (request, response) => {
   const student_id = parseInt(request.params.student_id)
 
-  pool.query('SELECT * FROM public.students WHERE student_id = $1', [student_id], (error, results) => {
+  pool.query("SELECT student_id, name, surname, email, country, to_char(created_at, 'DD.MM.YYYY') as created_at FROM public.students WHERE student_id = $1", [student_id], (error, results) => {
     if (error) {
       throw error
     }
@@ -116,7 +173,7 @@ const deleteCourse = (request, response) => {
 }
 
 const getPayments = (request, response) => {
-  pool.query('SELECT * FROM public.payments ORDER BY payment_id ASC', (error, results) => {
+  pool.query("SELECT student_id, name, surname, name_course, payment, payment_id, to_char(date_p, 'DD.MM.YYYY') as date_p FROM public.payments ORDER BY payment_id ASC", (error, results) => {
     if (error) {
       throw error
     }
@@ -126,7 +183,7 @@ const getPayments = (request, response) => {
 const getPaymentById = (request, response) => {
   const payment_id = parseInt(request.params.payment_id)
 
-  pool.query('SELECT * FROM public.payments WHERE payment_id = $1', [payment_id], (error, results) => {
+  pool.query("SELECT student_id, name, surname, name_course, payment, payment_id, to_char(date_p, 'DD.MM.YYYY') as date_p FROM public.payments WHERE payment_id = $1", [payment_id], (error, results) => {
     if (error) {
       throw error
     }
@@ -225,6 +282,13 @@ const deleteStudentsCourse = (request, response) => {
 
 module.exports = {
   getStudents,
+  getPaymentsPage,
+  getStudentsCSS,
+  getStudentsSQL,
+  getStudentsPython,
+  getStudentsHTML,
+  getStudentsJava,
+  getStudentsJS,
   getStudentById,
   createStudent,
   updateStudent,
