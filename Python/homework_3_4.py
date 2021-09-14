@@ -130,17 +130,12 @@ while True:
     print('конвертированная сумма в GPB ', gbp)
     print('конвертированная сумма в CNY ', cny)
     break
-#Задача 3 -  В виде функций
+# #Задача 3 -  В виде функций
 
 def main():
 
     input_money = get_money()
-
-    usd = exchange(input_money) / 73
-    eur = exchange(input_money) / 86
-    chf = exchange(input_money) / 79
-    gbp = exchange(input_money) / 100
-    cny = exchange(input_money) / 11
+    usd, eur, chf, gbp, cny = exchange(input_money)
 
     print('Ты ввел ', input_money)
     print('конвертированная сумма в USD ', usd)
@@ -178,10 +173,14 @@ def get_money():
 
 
 def exchange(money):
+    usd_money = int(money) / 73
+    eur_money = int(money) / 86
+    chf_money = int(money) / 79
+    gbp_money = int(money) / 100
+    cny_money = int(money) / 11
 
-    int_money = int(money)
+    return usd_money, eur_money, chf_money, gbp_money, cny_money
 
-    return int_money
 
 
 main()
@@ -201,7 +200,7 @@ exit()
 #                 "Вы ввели не число. Введите число." Если введены буквы.
 #                 "Вы ввели пустое поле. Введите число." Если введено пустое значение.
 #     7. После сообщеня об ошибке, скрипт должен автоматом вернуться к шагу 1.
-#
+
 # Задача 4 - в процедурном виде.
 
 while True:
@@ -254,21 +253,15 @@ def main():
     while True:
 
         input_money, input_curr = get_money()
+        usd, eur, chf, gbp, cny = exchange(input_money)
 
-        usd = exchange(input_money) / 73
-        eur = exchange(input_money) / 86
-        chf = exchange(input_money) / 79
-        gbp = exchange(input_money) / 100
-        cny = exchange(input_money) / 11
         if input_curr == "USD" or input_curr == "usd":
             print('Вы ввели сумму', input_money, 'и валюту', input_curr)
             print('конвертированная сумма в USD = ', usd)
-            continue
         elif input_curr == "EUR" or input_curr == "eur":
             input_data = input("Введите сумму ")
             print('Вы ввели сумму', input_money, 'и валюту', input_curr)
             print('конвертированная сумма в EUR = ', eur)
-            continue
         elif input_curr == "CHF" or input_curr == "chf":
             print('Вы ввели сумму', input_money, 'и валюту', input_curr)
             print('конвертированная сумма в CHF = ', chf)
@@ -312,10 +305,13 @@ def get_money():
 
 
 def exchange(money):
+    usd_money = int(money) / 73
+    eur_money = int(money) / 86
+    chf_money = int(money) / 79
+    gbp_money = int(money) / 100
+    cny_money = int(money) / 11
 
-    int_money = int(money)
+    return usd_money, eur_money, chf_money, gbp_money, cny_money
 
-    return int_money
 
 main()
-
